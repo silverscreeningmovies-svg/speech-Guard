@@ -2,3 +2,5 @@ google_drive/
 review/
 *.mp4
 !edits/.keep
+__pycache__/
+_tmp_*

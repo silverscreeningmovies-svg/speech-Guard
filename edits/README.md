@@ -44,3 +44,20 @@ and speed changes are all in `build_deliverables.py`.
 - `yyu`'s loud peaks at 27s+ are people talking, not hits.
 - Sources are 360x640 except `lk` (536x954); everything is upscaled to 720x1280,
   so `lk` is the sharpest shot in the reel.
+
+## Music
+
+`make_music.py` synthesises an original royalty-free bed (no samples, no licences):
+96 BPM, Am-F-C-G loop, kick/snare/hats/bass/pad, plus a reverse-noise riser and a
+crash landing exactly on each of the 7 verified contacts. Writes `edits/music_bed.wav`.
+
+`add_music.py` mixes that bed into the reel:
+- measures each contact in the render and gain-matches every scene to a common hit
+  level (the `jf` and second `jh` shots are 5-7 dB quieter than the rest)
+- sidechain-ducks the music under the clip audio so the bat cracks stay on top
+- normalises the finished mix to -15 LUFS / -1.5 dBTP
+
+Outputs: `cricket-highlights-music.mp4` (with SIX! text) and
+`cricket-highlights-music-notext.mp4`. To use a different track, drop the file in
+`edits/` and point `add_music.py`'s second `-i` at it; the ducking and scene
+gain-matching still apply.
