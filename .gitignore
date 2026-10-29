@@ -1,0 +1,4 @@
+google_drive/
+review/
+*.mp4
+!edits/.keep
